@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Objects;
+
 public class Motorcycle extends Vehicle {
     private String bikeType;
     private int maxSpeed;
@@ -20,13 +22,31 @@ public class Motorcycle extends Vehicle {
         this.maxSpeed = maxSpeed;
     }
 
-    {
-        System.out.println("Мотоцикл зазелся!");
-    }
-
-    public Motorcycle(String name, int yearOfIssue, String fuelType, String bikeType, int maxSpeed) {
-        super(name, yearOfIssue, fuelType);
+    public Motorcycle(String name, Color color, String bikeType, int maxSpeed) {
+        super(name, color);
         this.bikeType = bikeType;
         this.maxSpeed = maxSpeed;
+    }
+
+    @Override
+    public String toString() {
+        return "Motorcycle{" +
+                "bikeType='" + bikeType + '\'' +
+                ", maxSpeed=" + maxSpeed +
+                "} " + super.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        Motorcycle that = (Motorcycle) o;
+        return maxSpeed == that.maxSpeed && Objects.equals(bikeType, that.bikeType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), bikeType, maxSpeed);
     }
 }

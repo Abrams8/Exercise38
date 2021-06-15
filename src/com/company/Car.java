@@ -1,9 +1,9 @@
 package com.company;
 
+
 public class Car extends Vehicle {
     private int maxPassengers;
     private String bodyType;
-
 
     public int getMaxPassengers() {
         return maxPassengers;
@@ -21,8 +21,8 @@ public class Car extends Vehicle {
         this.bodyType = bodyType;
     }
 
-    public Car(String name, int yearOfIssue, String fuelType, int maxPassengers, String bodyType) {
-        super(name, yearOfIssue, fuelType);
+    public Car(String name, Color color, int maxPassengers, String bodyType) {
+        super(name, color);
         this.maxPassengers = maxPassengers;
         this.bodyType = bodyType;
     }
@@ -32,7 +32,8 @@ public class Car extends Vehicle {
         return "Car{" +
                 "maxPassengers=" + maxPassengers +
                 ", bodyType='" + bodyType + '\'' +
-                ", Color=" + Color +
                 "} " + super.toString();
     }
+
+
 }
